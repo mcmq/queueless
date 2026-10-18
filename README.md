@@ -7,9 +7,13 @@ university office, or small business from their phone, and watch their place in 
 
 ## Screenshots
 
-| Home | Place detail | Ticket | Staff login |
-|------|--------------|--------|-------------|
-| <img src="docs/screenshots/01-home.png" width="200" alt="Home screen"> | <img src="docs/screenshots/02-place.png" width="200" alt="Place detail"> | <img src="docs/screenshots/03-ticket.png" width="200" alt="Booking ticket"> | <img src="docs/screenshots/04-staff-login.png" width="200" alt="Staff login"> |
+| Home | Place detail | Ticket |
+|------|--------------|--------|
+| <img src="docs/screenshots/01-home.png" width="220" alt="Home screen"> | <img src="docs/screenshots/02-place.png" width="220" alt="Place detail"> | <img src="docs/screenshots/03-ticket.png" width="220" alt="Booking ticket"> |
+
+| Staff login | Staff dashboard | Place profile |
+|-------------|-----------------|---------------|
+| <img src="docs/screenshots/04-staff-login.png" width="220" alt="Staff login"> | <img src="docs/screenshots/05-staff-dashboard.png" width="220" alt="Staff dashboard"> | <img src="docs/screenshots/06-staff-profile.png" width="220" alt="Place profile"> |
 
 ## Overview
 
