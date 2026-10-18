@@ -3,8 +3,6 @@
 Skip the line, not the service. Queueless lets people join a virtual queue at a clinic,
 university office, or small business from their phone, and watch their place in line live.
 
-![Design reference](docs/image.png)
-
 ## Screenshots
 
 | Home | Place detail | Ticket |

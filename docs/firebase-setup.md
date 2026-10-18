@@ -17,6 +17,12 @@ This generates `lib/firebase_options.dart` (the repo ships a placeholder so it c
 `google-services.json` / `GoogleService-Info.plist` to `.gitignore` if you do not want them public
 (they are not secrets, but keep the repo clean of personal project IDs if preferred).
 
+### Environment file
+
+At startup the app loads `.env` (via `flutter_dotenv`, bundled as an asset) and builds its Firebase
+options from it; any missing value falls back to `lib/firebase_options.dart`. Copy `.env.example` to
+`.env` and fill in your values. `.env` is git-ignored but must exist locally or the build fails.
+
 ## 3. Packages
 
 ```bash
