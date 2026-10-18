@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "534295687058",
+    "project_id": "queueless-6d5b2",
+    "storage_bucket": "queueless-6d5b2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534295687058:android:052643436b86a76a439b4b",
+        "android_client_info": {
+          "package_name": "com.example.queueless"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUG7z4T7LR2N9F6J_cJ1und8cM3pjpCbs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

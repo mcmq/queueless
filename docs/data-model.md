@@ -41,12 +41,11 @@ Active = `waiting` or `called`.
 |--------------------------------|-----------------------------------------------------------------------|
 | Place list                     | `places` ordered by `name`                                            |
 | Waiting count for a place card | `places/{id}/tickets` where `status == waiting` (count)               |
-| Staff live queue               | `tickets` where `status in [waiting, called]` order by `number`       |
+| Staff live queue               | `tickets` where `status == waiting` (sorted by `number` client-side) + `status == called`       |
 | My ticket                      | doc `places/{id}/tickets/{myUid}` snapshot                            |
 | Position                       | count of `waiting` tickets with `number < mine` (+1)                  |
 
-The staff query needs a composite index (`status`, `number`); Firestore prints a creation link
-on first run. Commit `firestore.indexes.json` once created.
+Queries filter on a single `status` value and sort by `number` client-side, so no composite index is needed.
 
 ## Join transaction
 

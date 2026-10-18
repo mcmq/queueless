@@ -1,0 +1,33 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{db}/documents {
+    function signedIn() { return request.auth != null; }
+    function isStaff()  { return signedIn() && request.auth.token.firebase.sign_in_provider == 'password'; }
+
+    match /places/{placeId} {
+      allow read: if true;
+      allow create: if isStaff() && request.auth.uid == placeId
+                    && request.resource.data.ownerUid == request.auth.uid;
+      allow update: if isStaff() && request.auth.uid == placeId
+                    // customers may only bump the ticket counter by exactly 1 when joining
+                    || (signedIn()
+                        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['lastTicketNumber'])
+                        && request.resource.data.lastTicketNumber == resource.data.lastTicketNumber + 1);
+      allow delete: if false;
+
+      match /tickets/{customerUid} {
+        allow read: if signedIn();
+        // join / rejoin: only my own doc, only as waiting
+        allow create, update: if signedIn() && request.auth.uid == customerUid
+                              && request.resource.data.status == 'waiting'
+                              && get(/databases/$(db)/documents/places/$(placeId)).data.isOpen == true;
+        // cancel: only my own ticket, only to cancelled
+        allow update: if signedIn() && request.auth.uid == customerUid
+                      && request.resource.data.status == 'cancelled';
+        // staff manage tickets in their own place
+        allow update: if isStaff() && request.auth.uid == placeId;
+        allow delete: if false;
+      }
+    }
+  }
+}

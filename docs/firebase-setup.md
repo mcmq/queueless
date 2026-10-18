@@ -13,7 +13,7 @@ dart pub global activate flutterfire_cli
 flutterfire configure
 ```
 
-This generates `lib/firebase_options.dart` and the platform config files. Add the generated
+This generates `lib/firebase_options.dart` (the repo ships a placeholder so it compiles) and the platform config files. Add the generated
 `google-services.json` / `GoogleService-Info.plist` to `.gitignore` if you do not want them public
 (they are not secrets, but keep the repo clean of personal project IDs if preferred).
 
@@ -21,7 +21,7 @@ This generates `lib/firebase_options.dart` and the platform config files. Add th
 
 ```bash
 flutter pub add firebase_core firebase_auth cloud_firestore flutter_riverpod go_router
-flutter pub add --dev fake_cloud_firestore
+# already in pubspec.yaml; run `flutter pub get`
 ```
 
 ## 4. Security rules

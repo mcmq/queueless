@@ -5,7 +5,11 @@ university office, or small business from their phone, and watch their place in 
 
 ![Design reference](docs/image.png)
 
-> Screenshots of the finished app will go here.
+## Screenshots
+
+| Home | Place detail | Ticket | Staff login |
+|------|--------------|--------|-------------|
+| <img src="docs/screenshots/01-home.png" width="200" alt="Home screen"> | <img src="docs/screenshots/02-place.png" width="200" alt="Place detail"> | <img src="docs/screenshots/03-ticket.png" width="200" alt="Booking ticket"> | <img src="docs/screenshots/04-staff-login.png" width="200" alt="Staff login"> |
 
 ## Overview
 
@@ -60,11 +64,24 @@ cd queueless
 flutter pub get
 dart pub global activate flutterfire_cli
 flutterfire configure        # connects the app to your Firebase project
+cp .env.example .env         # then fill in your Firebase values (see .env.example)
 flutter run
 ```
 
 Firebase console setup (enable Anonymous + Email/Password auth, create Firestore, paste security
 rules) is in [docs/firebase-setup.md](docs/firebase-setup.md).
+
+### Demo data (optional)
+
+Seed three open demo places (each with its own staff login) into your Firebase project, using the
+`apiKey` and `projectId` from `lib/firebase_options.dart`:
+
+```bash
+dart run tool/seed_demo.dart <web-api-key> <project-id>
+```
+
+Demo staff logins: `citycare@queueless.demo`, `uniregistrar@queueless.demo`,
+`quickfix@queueless.demo`, all with password `demo1234`.
 
 ```bash
 flutter analyze   # lint
@@ -93,8 +110,9 @@ docs/         requirements, architecture, data model, design
 
 ## Status
 
-Planning and docs complete; implementation follows the milestones in the
-[roadmap](docs/roadmap.md).
+MVP implemented (all roadmap milestones 1-6 in code): loading, empty and error states, unit and
+widget tests, and a demo seed script. Needs your own Firebase project (`flutterfire configure`)
+to run.
 
 ## License
 

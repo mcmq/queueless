@@ -60,5 +60,4 @@ An entry point to staff (e.g. a small "Staff login" link on Home) switches betwe
 
 ## Testing approach
 
-Unit tests for pure logic (ETA, position). Repository tests with `fake_cloud_firestore`.
-A couple of widget tests for ticket and dashboard states. Keep it light.
+Unit tests for pure logic (`test/queue_math_test.dart`). `fake_cloud_firestore` is not used (incompatible with current `cloud_firestore`). Keep it light.
