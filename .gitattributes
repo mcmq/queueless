@@ -1,0 +1,22 @@
+# Normalize line endings: LF in the repo, native on checkout.
+* text=auto eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.ttf binary
+*.otf binary
+*.jar binary
+
+# Generated or vendored files: collapse in diffs and exclude from language stats
+pubspec.lock linguist-generated
+lib/firebase_options.dart linguist-generated
+android/build/** linguist-generated
+*.g.dart linguist-generated
+*.freezed.dart linguist-generated
+
+# Windows scripts keep CRLF
+*.bat text eol=crlf
